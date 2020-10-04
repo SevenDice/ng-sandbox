@@ -19,17 +19,17 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 // Функции которые выполняются в компоненте, emit для оповещения о новом событии, а дальше поднимаем вверх
-  onAddServer() {
+  onAddServer(nameInput: HTMLInputElement) {
     this.serverCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverName: nameInput.value, // Здесь local reference
+      serverContent: this.newServerContent // Здесь two way databinding
     });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(nameInput: HTMLInputElement) {
     this.blueprintCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverName: nameInput.value, // Здесь local reference
+      serverContent: this.newServerContent // Здесь two way databinding
     });
   }
 
